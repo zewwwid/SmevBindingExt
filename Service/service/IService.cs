@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel;
 
-namespace Service.service
+namespace Service
 {
     [ServiceContract]
     [XmlSerializerFormat]

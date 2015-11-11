@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Service.service
+namespace Service
 {
     public class Service : IService
     {
