@@ -43,10 +43,6 @@ namespace Service
                 CaseNumber = request.Message.CaseNumber,
                 // Код муниципального образования
                 OKTMO = request.Message.OKTMO,
-                // Идентификатор сообщения-запроса, инициировавшего взаимодействие
-                RequestIdRef = request.Header != null ? request.Header.MessageId : Guid.NewGuid().ToString(),
-                // Идентификатор сообщения-запроса, инициировавшего цепочку из нескольких запросов-ответов
-                OriginRequestIdRef = request.Header != null ? request.Header.MessageId : Guid.NewGuid().ToString()
             };
         }
 

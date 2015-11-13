@@ -8,39 +8,23 @@ namespace Client
     {
         static void Main()
         {
-            var client = new ServiceClient();
-            var header = CreateHeader();
+            var client = new SmevBindingExtSeviceClient();
             var message = CreateMessage();
             var messageData = CreateMessageData();
 
             try
             {
-                client.DoWork(ref header, ref message, ref messageData);
+                client.DoWork(ref message, ref messageData);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine(ex.InnerException.Message);
+                }
                 Console.ReadLine();
             }
-        }
-
-        /// <summary>
-        /// Создает служебный загловок СМЭВ для запроса.
-        /// </summary>
-        /// <returns>Служебный загловок СМЭВ</returns>
-        private static HeaderType CreateHeader()
-        {
-            return new HeaderType
-            {
-                // Класс электронного сообщения
-                MessageClass = MessageClassType.REQUEST,
-                // Идентификатор электронного сообщения
-                MessageId = Guid.NewGuid().ToString(),
-                // Дата создания сообщения
-                TimeStamp = DateTime.Now,
-                // Код узла СМЭВ
-                NodeId = ConfigurationManager.AppSettings["NodeId"] ?? "00"
-            };
         }
 
         /// <summary>
@@ -88,7 +72,7 @@ namespace Client
                 // Признак тестового взаимодействия
                 TestMsg = "test",
                 // Номер дела в ИС-отправителе
-                CaseNumber = Guid.NewGuid().ToString(),
+                CaseNumber = "1", //Guid.NewGuid().ToString(),
                 // Код государственной услуги
                 ServiceCode = ConfigurationManager.AppSettings["ServiceCode"] ?? "1"
             };

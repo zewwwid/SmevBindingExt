@@ -12,15 +12,15 @@ namespace Client.Service {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Service.IService")]
-    public interface IService {
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://smev.gosuslugi.ru/rev120315", ConfigurationName="Service.SmevBindingExtSevice")]
+    public interface SmevBindingExtSevice {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DoWork", ReplyAction="http://tempuri.org/IService/DoWorkResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.Sign, Action="http://smev.gosuslugi.ru/rev120315/SmevBindingExtSevice/DoWork", ReplyAction="http://smev.gosuslugi.ru/rev120315/SmevBindingExtSevice/DoWorkResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         Client.Service.Response DoWork(Client.Service.Request request);
         
         // CODEGEN: Идет формирование контракта на сообщение, так как операция может иметь много возвращаемых значений.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DoWork", ReplyAction="http://tempuri.org/IService/DoWorkResponse")]
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.Sign, Action="http://smev.gosuslugi.ru/rev120315/SmevBindingExtSevice/DoWork", ReplyAction="http://smev.gosuslugi.ru/rev120315/SmevBindingExtSevice/DoWorkResponse")]
         System.Threading.Tasks.Task<Client.Service.Response> DoWorkAsync(Client.Service.Request request);
     }
     
@@ -30,104 +30,217 @@ namespace Client.Service {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
-    public partial class HeaderType : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class MessageType : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string nodeIdField;
+        private orgExternalType senderField;
         
-        private string messageIdField;
+        private orgExternalType recipientField;
         
-        private System.DateTime timeStampField;
+        private orgExternalType originatorField;
         
-        private MessageClassType messageClassField;
+        private object itemField;
         
-        private PacketIdType[] packetIdsField;
+        private TypeCodeType typeCodeField;
         
-        private string actorField;
+        private StatusType statusField;
         
-        private System.Xml.XmlAttribute[] anyAttrField;
+        private System.DateTime dateField;
+        
+        private string exchangeTypeField;
+        
+        private string requestIdRefField;
+        
+        private string originRequestIdRefField;
+        
+        private string serviceCodeField;
+        
+        private string caseNumberField;
+        
+        private SubMessageType[] subMessagesField;
+        
+        private string testMsgField;
+        
+        private string oKTMOField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string NodeId {
+        public orgExternalType Sender {
             get {
-                return this.nodeIdField;
+                return this.senderField;
             }
             set {
-                this.nodeIdField = value;
-                this.RaisePropertyChanged("NodeId");
+                this.senderField = value;
+                this.RaisePropertyChanged("Sender");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string MessageId {
+        public orgExternalType Recipient {
             get {
-                return this.messageIdField;
+                return this.recipientField;
             }
             set {
-                this.messageIdField = value;
-                this.RaisePropertyChanged("MessageId");
+                this.recipientField = value;
+                this.RaisePropertyChanged("Recipient");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public System.DateTime TimeStamp {
+        public orgExternalType Originator {
             get {
-                return this.timeStampField;
+                return this.originatorField;
             }
             set {
-                this.timeStampField = value;
-                this.RaisePropertyChanged("TimeStamp");
+                this.originatorField = value;
+                this.RaisePropertyChanged("Originator");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public MessageClassType MessageClass {
+        [System.Xml.Serialization.XmlElementAttribute("Service", typeof(ServiceType), Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute("ServiceName", typeof(string), Order=3)]
+        public object Item {
             get {
-                return this.messageClassField;
+                return this.itemField;
             }
             set {
-                this.messageClassField = value;
-                this.RaisePropertyChanged("MessageClass");
+                this.itemField = value;
+                this.RaisePropertyChanged("Item");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=4)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("Id", IsNullable=false)]
-        public PacketIdType[] PacketIds {
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public TypeCodeType TypeCode {
             get {
-                return this.packetIdsField;
+                return this.typeCodeField;
             }
             set {
-                this.packetIdsField = value;
-                this.RaisePropertyChanged("PacketIds");
+                this.typeCodeField = value;
+                this.RaisePropertyChanged("TypeCode");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string actor {
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public StatusType Status {
             get {
-                return this.actorField;
+                return this.statusField;
             }
             set {
-                this.actorField = value;
-                this.RaisePropertyChanged("actor");
+                this.statusField = value;
+                this.RaisePropertyChanged("Status");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
-        public System.Xml.XmlAttribute[] AnyAttr {
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public System.DateTime Date {
             get {
-                return this.anyAttrField;
+                return this.dateField;
             }
             set {
-                this.anyAttrField = value;
-                this.RaisePropertyChanged("AnyAttr");
+                this.dateField = value;
+                this.RaisePropertyChanged("Date");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string ExchangeType {
+            get {
+                return this.exchangeTypeField;
+            }
+            set {
+                this.exchangeTypeField = value;
+                this.RaisePropertyChanged("ExchangeType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public string RequestIdRef {
+            get {
+                return this.requestIdRefField;
+            }
+            set {
+                this.requestIdRefField = value;
+                this.RaisePropertyChanged("RequestIdRef");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public string OriginRequestIdRef {
+            get {
+                return this.originRequestIdRefField;
+            }
+            set {
+                this.originRequestIdRefField = value;
+                this.RaisePropertyChanged("OriginRequestIdRef");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public string ServiceCode {
+            get {
+                return this.serviceCodeField;
+            }
+            set {
+                this.serviceCodeField = value;
+                this.RaisePropertyChanged("ServiceCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public string CaseNumber {
+            get {
+                return this.caseNumberField;
+            }
+            set {
+                this.caseNumberField = value;
+                this.RaisePropertyChanged("CaseNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=12)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("SubMessage", IsNullable=false)]
+        public SubMessageType[] SubMessages {
+            get {
+                return this.subMessagesField;
+            }
+            set {
+                this.subMessagesField = value;
+                this.RaisePropertyChanged("SubMessages");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public string TestMsg {
+            get {
+                return this.testMsgField;
+            }
+            set {
+                this.testMsgField = value;
+                this.RaisePropertyChanged("TestMsg");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public string OKTMO {
+            get {
+                return this.oKTMOField;
+            }
+            set {
+                this.oKTMOField = value;
+                this.RaisePropertyChanged("OKTMO");
             }
         }
         
@@ -144,49 +257,36 @@ namespace Client.Service {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
-    public enum MessageClassType {
-        
-        /// <remarks/>
-        REQUEST,
-        
-        /// <remarks/>
-        RESPONSE,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
-    public partial class PacketIdType : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class orgExternalType : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string messageIdField;
+        private string codeField;
         
-        private string subRequestNumberField;
+        private string nameField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string MessageId {
+        public string Code {
             get {
-                return this.messageIdField;
+                return this.codeField;
             }
             set {
-                this.messageIdField = value;
-                this.RaisePropertyChanged("MessageId");
+                this.codeField = value;
+                this.RaisePropertyChanged("Code");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string SubRequestNumber {
+        public string Name {
             get {
-                return this.subRequestNumberField;
+                return this.nameField;
             }
             set {
-                this.subRequestNumberField = value;
-                this.RaisePropertyChanged("SubRequestNumber");
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
             }
         }
         
@@ -657,52 +757,6 @@ namespace Client.Service {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
-    public partial class orgExternalType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string codeField;
-        
-        private string nameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Code {
-            get {
-                return this.codeField;
-            }
-            set {
-                this.codeField = value;
-                this.RaisePropertyChanged("Code");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Name {
-            get {
-                return this.nameField;
-            }
-            set {
-                this.nameField = value;
-                this.RaisePropertyChanged("Name");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
     public partial class ServiceType : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string mnemonicField;
@@ -746,236 +800,6 @@ namespace Client.Service {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
     [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
-    public partial class MessageType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private orgExternalType senderField;
-        
-        private orgExternalType recipientField;
-        
-        private orgExternalType originatorField;
-        
-        private object itemField;
-        
-        private TypeCodeType typeCodeField;
-        
-        private StatusType statusField;
-        
-        private System.DateTime dateField;
-        
-        private string exchangeTypeField;
-        
-        private string requestIdRefField;
-        
-        private string originRequestIdRefField;
-        
-        private string serviceCodeField;
-        
-        private string caseNumberField;
-        
-        private SubMessageType[] subMessagesField;
-        
-        private string testMsgField;
-        
-        private string oKTMOField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public orgExternalType Sender {
-            get {
-                return this.senderField;
-            }
-            set {
-                this.senderField = value;
-                this.RaisePropertyChanged("Sender");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public orgExternalType Recipient {
-            get {
-                return this.recipientField;
-            }
-            set {
-                this.recipientField = value;
-                this.RaisePropertyChanged("Recipient");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public orgExternalType Originator {
-            get {
-                return this.originatorField;
-            }
-            set {
-                this.originatorField = value;
-                this.RaisePropertyChanged("Originator");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Service", typeof(ServiceType), Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute("ServiceName", typeof(string), Order=3)]
-        public object Item {
-            get {
-                return this.itemField;
-            }
-            set {
-                this.itemField = value;
-                this.RaisePropertyChanged("Item");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public TypeCodeType TypeCode {
-            get {
-                return this.typeCodeField;
-            }
-            set {
-                this.typeCodeField = value;
-                this.RaisePropertyChanged("TypeCode");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public StatusType Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-                this.RaisePropertyChanged("Status");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public System.DateTime Date {
-            get {
-                return this.dateField;
-            }
-            set {
-                this.dateField = value;
-                this.RaisePropertyChanged("Date");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string ExchangeType {
-            get {
-                return this.exchangeTypeField;
-            }
-            set {
-                this.exchangeTypeField = value;
-                this.RaisePropertyChanged("ExchangeType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public string RequestIdRef {
-            get {
-                return this.requestIdRefField;
-            }
-            set {
-                this.requestIdRefField = value;
-                this.RaisePropertyChanged("RequestIdRef");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public string OriginRequestIdRef {
-            get {
-                return this.originRequestIdRefField;
-            }
-            set {
-                this.originRequestIdRefField = value;
-                this.RaisePropertyChanged("OriginRequestIdRef");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-        public string ServiceCode {
-            get {
-                return this.serviceCodeField;
-            }
-            set {
-                this.serviceCodeField = value;
-                this.RaisePropertyChanged("ServiceCode");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-        public string CaseNumber {
-            get {
-                return this.caseNumberField;
-            }
-            set {
-                this.caseNumberField = value;
-                this.RaisePropertyChanged("CaseNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=12)]
-        [System.Xml.Serialization.XmlArrayItemAttribute("SubMessage", IsNullable=false)]
-        public SubMessageType[] SubMessages {
-            get {
-                return this.subMessagesField;
-            }
-            set {
-                this.subMessagesField = value;
-                this.RaisePropertyChanged("SubMessages");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-        public string TestMsg {
-            get {
-                return this.testMsgField;
-            }
-            set {
-                this.testMsgField = value;
-                this.RaisePropertyChanged("TestMsg");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
-        public string OKTMO {
-            get {
-                return this.oKTMOField;
-            }
-            set {
-                this.oKTMOField = value;
-                this.RaisePropertyChanged("OKTMO");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.79.0")]
-    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
     public enum TypeCodeType {
         
@@ -991,25 +815,19 @@ namespace Client.Service {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="TestRequest", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TestRequest", WrapperNamespace="http://smev.gosuslugi.ru/rev120315", IsWrapped=true)]
     public partial class Request {
         
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
-        public Client.Service.HeaderType Header;
-        
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smev.gosuslugi.ru/rev120315", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
         public Client.Service.MessageType Message;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smev.gosuslugi.ru/rev120315", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
         public Client.Service.MessageDataType MessageData;
         
         public Request() {
         }
         
-        public Request(Client.Service.HeaderType Header, Client.Service.MessageType Message, Client.Service.MessageDataType MessageData) {
-            this.Header = Header;
+        public Request(Client.Service.MessageType Message, Client.Service.MessageDataType MessageData) {
             this.Message = Message;
             this.MessageData = MessageData;
         }
@@ -1017,69 +835,61 @@ namespace Client.Service {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="TestResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TestResponse", WrapperNamespace="http://smev.gosuslugi.ru/rev120315", IsWrapped=true)]
     public partial class Response {
         
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
-        public Client.Service.HeaderType Header;
-        
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smev.gosuslugi.ru/rev120315", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
         public Client.Service.MessageType Message;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://smev.gosuslugi.ru/rev120315", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Namespace="http://smev.gosuslugi.ru/rev120315")]
         public Client.Service.MessageDataType MessageData;
         
         public Response() {
         }
         
-        public Response(Client.Service.HeaderType Header, Client.Service.MessageType Message, Client.Service.MessageDataType MessageData) {
-            this.Header = Header;
+        public Response(Client.Service.MessageType Message, Client.Service.MessageDataType MessageData) {
             this.Message = Message;
             this.MessageData = MessageData;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : Client.Service.IService, System.ServiceModel.IClientChannel {
+    public interface SmevBindingExtSeviceChannel : Client.Service.SmevBindingExtSevice, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<Client.Service.IService>, Client.Service.IService {
+    public partial class SmevBindingExtSeviceClient : System.ServiceModel.ClientBase<Client.Service.SmevBindingExtSevice>, Client.Service.SmevBindingExtSevice {
         
-        public ServiceClient() {
+        public SmevBindingExtSeviceClient() {
         }
         
-        public ServiceClient(string endpointConfigurationName) : 
+        public SmevBindingExtSeviceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public SmevBindingExtSeviceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public SmevBindingExtSeviceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public SmevBindingExtSeviceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.Service.Response Client.Service.IService.DoWork(Client.Service.Request request) {
+        Client.Service.Response Client.Service.SmevBindingExtSevice.DoWork(Client.Service.Request request) {
             return base.Channel.DoWork(request);
         }
         
-        public void DoWork(ref Client.Service.HeaderType Header, ref Client.Service.MessageType Message, ref Client.Service.MessageDataType MessageData) {
+        public void DoWork(ref Client.Service.MessageType Message, ref Client.Service.MessageDataType MessageData) {
             Client.Service.Request inValue = new Client.Service.Request();
-            inValue.Header = Header;
             inValue.Message = Message;
             inValue.MessageData = MessageData;
-            Client.Service.Response retVal = ((Client.Service.IService)(this)).DoWork(inValue);
-            Header = retVal.Header;
+            Client.Service.Response retVal = ((Client.Service.SmevBindingExtSevice)(this)).DoWork(inValue);
             Message = retVal.Message;
             MessageData = retVal.MessageData;
         }

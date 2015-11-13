@@ -54,9 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\Service\Client.Service.HeaderType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\Service\Client.Service.MessageDataType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -70,9 +67,7 @@
     <None Include="Service References\Service\Service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Service\Service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Service References\Service\Service1.wsdl" />
     <None Include="Service References\Service\Service2.xsd">
       <SubType>Designer</SubType>
     </None>

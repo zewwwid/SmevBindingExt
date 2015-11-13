@@ -1,8 +1,10 @@
-﻿using System.ServiceModel;
+﻿using System.Net.Security;
+using System.ServiceModel;
 
 namespace Service
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://smev.gosuslugi.ru/rev120315", Name = "SmevBindingExtSevice",
+        ProtectionLevel = ProtectionLevel.Sign)]
     [XmlSerializerFormat]
     public interface IService
     {
@@ -18,12 +20,6 @@ namespace Service
     [XmlSerializerFormat]
     public class Request
     {
-        /// <summary>
-        /// Служебный загловок СМЭВ.
-        /// </summary>
-        [MessageHeader(Name = "Header", Namespace = "http://smev.gosuslugi.ru/rev120315")]
-        public HeaderType Header;
-
         /// <summary>
         /// Cлужебный блок атрибутов СМЭВ.
         /// </summary>
@@ -44,12 +40,6 @@ namespace Service
     [XmlSerializerFormat]
     public class Response
     {
-        /// <summary>
-        /// Служебный загловок СМЭВ.
-        /// </summary>
-        [MessageHeader(Name = "Header", Namespace = "http://smev.gosuslugi.ru/rev120315")]
-        public HeaderType Header;
-
         /// <summary>
         /// Cлужебный блок атрибутов СМЭВ.
         /// </summary>
