@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Service
 {
@@ -9,7 +10,7 @@ namespace Service
             var response = new Response();
 
             response.Message = CreateMessage(request);
-            response.MessageData = CreateMessageData(request);
+            response.MessageData = CreateMessageData();
 
             return response;
         }
@@ -43,6 +44,23 @@ namespace Service
                 CaseNumber = request.Message.CaseNumber,
                 // Код муниципального образования
                 OKTMO = request.Message.OKTMO,
+                RequestIdRef = Guid.NewGuid().ToString(),
+                OriginRequestIdRef = Guid.NewGuid().ToString(),
+
+                SubMessages = new List<SubMessageType>()
+                {
+                    new SubMessageType()
+                    {
+                        // Уникальный идентификатор сообщения внутри пакета
+                        SubRequestNumber = Guid.NewGuid().ToString(),
+                        Status = StatusType.RESULT,
+                        Originator = request.Message.Originator,
+                        Date = DateTime.Now,
+                        RequestIdRef = Guid.NewGuid().ToString(),
+                        ServiceCode = request.Message.ServiceCode,
+                        CaseNumber = request.Message.CaseNumber
+                    }
+                }
             };
         }
 
@@ -51,7 +69,7 @@ namespace Service
         /// </summary>
         /// <param name="request">Запрос</param>
         /// <returns>Блок-обертка данных СМЭВ</returns>
-        private MessageDataType CreateMessageData(Request request)
+        private MessageDataType CreateMessageData()
         {
             return new MessageDataType()
             {

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{011671BB-C2C0-41D7-AC30-D42EBCC6679E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaptureBehavior", "CaptureBehavior\CaptureBehavior.csproj", "{028F5EA0-AD3F-44E3-9116-21CAE62B0C59}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{011671BB-C2C0-41D7-AC30-D42EBCC6679E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{011671BB-C2C0-41D7-AC30-D42EBCC6679E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{011671BB-C2C0-41D7-AC30-D42EBCC6679E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{028F5EA0-AD3F-44E3-9116-21CAE62B0C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{028F5EA0-AD3F-44E3-9116-21CAE62B0C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{028F5EA0-AD3F-44E3-9116-21CAE62B0C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{028F5EA0-AD3F-44E3-9116-21CAE62B0C59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
